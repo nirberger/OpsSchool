@@ -13,9 +13,10 @@ su vagrant -c "ssh-keygen -t rsa -P '' -f /home/vagrant/.ssh/id_rsa"
 #ssh-copy-id -i ~/.ssh/id_dsa.pub vagrant@server1
 mkdir -p /vagrant/files/ssh
 cp /home/vagrant/.ssh/id_rsa.pub /vagrant/files/ssh/`hostname`.pub
-ssh-keyscan -t rsa server2  > /etc/ssh/ssh_known_hosts
-ssh-keyscan -t rsa server1 >> /etc/ssh/ssh_known_hosts
-ssh-keyscan -t dsa server2  >> /etc/ssh/ssh_known_hosts
-ssh-keyscan -t dsa  server1  >> /etc/ssh/ssh_known_hosts
+ssh-keyscan -t rsa server1 > /etc/ssh/ssh_known_hosts
+ssh-keyscan -t dsa server1 >> /etc/ssh/ssh_known_hosts
+sleep 20
+ssh-keyscan -t rsa server2 >> /etc/ssh/ssh_known_hosts
+ssh-keyscan -t dsa server2 >> /etc/ssh/ssh_known_hosts
 cat /vagrant/files/ssh/server2.pub >> /home/vagrant/.ssh/authorized_keys
 cat /vagrant/files/ssh/server1.pub >> /home/vagrant/.ssh/authorized_keys
