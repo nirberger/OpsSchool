@@ -5,7 +5,7 @@
 #cat  .ssh/id_rsa.pub | ssh  vagrant@server2 "cat > ~/.ssh/authorized_keys"
 
 
-sudo sed -i '$ a 192.168.100.11 server2 server2' /etc/hosts
+sudo sed -i '$ a 192.168.100.10 server1 server1' /etc/hosts
 mkdir -p /home/vagrant/.ssh
 chmod 700 /home/vagrant/.ssh
 chown -R vagrant:vagrant /home/vagrant/.ssh
