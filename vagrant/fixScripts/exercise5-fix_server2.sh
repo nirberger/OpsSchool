@@ -13,6 +13,7 @@ mkdir -p /vagrant/files/ssh
 cp /home/vagrant/.ssh/id_rsa.pub /vagrant/files/ssh/`hostname`.pub
 ssh-keyscan -t rsa server2 > /etc/ssh/ssh_known_hosts
 ssh-keyscan -t dsa server2 >> /etc/ssh/ssh_known_hosts
+# Waiting for server2 to be up
 sleep 20
 ssh-keyscan -t rsa server1 >> /etc/ssh/ssh_known_hosts
 ssh-keyscan -t dsa server1 >> /etc/ssh/ssh_known_hosts
